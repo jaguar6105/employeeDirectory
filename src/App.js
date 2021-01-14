@@ -1,10 +1,9 @@
-import './App.css';
-import Table from "./components/Table";
+import TableContainer from "./components/TableContainer";
 
 
 function App() {
   return (
-    <Table/>
+    <TableContainer/>
   );
 }
 
