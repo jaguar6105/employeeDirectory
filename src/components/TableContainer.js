@@ -38,7 +38,8 @@ class TableContainer extends Component {
     return (
       <div>
         <Filter/>
-        <Table results={this.state.users} />
+        <div></div>
+        <Table/>
       </div>
     );
   }
