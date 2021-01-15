@@ -9,16 +9,29 @@ class TableContainer extends Component {
     sort: "",
     filterBy: "",
     filter: "",
-    users: []
+    generatedUsers: []
   };
 
   // When this component mounts, search the Giphy API for pictures of kittens
-  componentDidMount() {
-    API.default()
-    .then(res => console.log(res)) //this.setState({ results: res.data.data }))
-      .catch(err => console.log(err));
+  async componentDidMount() {
+    for(let i = 0; i < 10; i++) {
+      this.getUser()
+    }
+    console.log(this.state.generatedUsers);
   }
 
+  getUser = () => {
+    const generatedUsers = this.state.generatedUsers; 
+    API.default()
+    .then(res => {
+      generatedUsers.push(res.data.results);
+      this.setState({ generatedUsers: generatedUsers
+     });
+    }
+  )
+      .catch(err => console.log(err));
+  }
+  
   
 
   handleInputChange = event => {
